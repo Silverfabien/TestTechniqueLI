@@ -90,8 +90,7 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'choices' => [
                     'Homme' => 1,
-                    'Femme' => 2,
-                    'Autre' => 3
+                    'Femme' => 2
                 ],
                 'expanded' => true,
                 'multiple' => false

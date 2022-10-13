@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $lastname = null;
 
     #[ORM\Column]
-    private ?int $gender = null;
+    private ?bool $gender = null;
 
     #[ORM\Column(length: 255)]
     private ?string $country = null;
@@ -92,12 +92,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getGender(): ?int
+    public function getGender(): ?bool
     {
         return $this->gender;
     }
 
-    public function setGender(int $gender): self
+    public function setGender(bool $gender): self
     {
         $this->gender = $gender;
 
