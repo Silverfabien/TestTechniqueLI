@@ -5,12 +5,14 @@ namespace App\Controller\Security;
 use App\ControllerHandler\Security\RegistrationHandler;
 use App\Entity\Security\User;
 use App\Form\Security\RegistrationFormType;
+use App\Security\LoginFormAuthenticator;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -21,15 +23,20 @@ class RegistrationController extends AbstractController
      * @param RegistrationHandler $registrationHandler
      * @param MailerInterface $mailer
      */
-    public function __construct(RegistrationHandler $registrationHandler, MailerInterface $mailer)
-    {
+    public function __construct(
+        RegistrationHandler $registrationHandler,
+        MailerInterface $mailer
+    ) {
         $this->registrationHandler = $registrationHandler;
         $this->mailer = $mailer;
     }
 
+
     #[Route('/register', name: 'register')]
     public function register(
-        Request $request
+        Request $request,
+        UserAuthenticatorInterface $userAuthenticator,
+        LoginFormAuthenticator $loginFormAuthenticator
     ): Response|TemplatedEmail
     {
         $user = new User();
@@ -42,10 +49,14 @@ class RegistrationController extends AbstractController
             $emailForAdmin = $this->sendEmailForAdmin($user);
             $this->mailer->send($emailForAdmin);
 
-            return $this->redirectToRoute('default');
+            return $userAuthenticator->authenticateUser(
+                $user,
+                $loginFormAuthenticator,
+                $request
+            );
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('security/registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
@@ -59,7 +70,7 @@ class RegistrationController extends AbstractController
             ->from('testtechnique@gmail.com')
             ->to($user->getEmail())
             ->subject('Récapitulatif de l\'inscription')
-            ->htmlTemplate('registration\_emailForUser.html.twig')
+            ->htmlTemplate('security\registration\_emailForUser.html.twig')
             ->context(['user' => $user])
         ;
     }
@@ -73,7 +84,7 @@ class RegistrationController extends AbstractController
             ->from('testtechnique@gmail.com')
             ->to('hollebeque.fabien@hotmail.com')
             ->subject('Récapitulatif de l\'inscription de '.$user->getLastname().' '.$user->getFirstname())
-            ->htmlTemplate('registration\_emailForAdmin.html.twig')
+            ->htmlTemplate('security\registration\_emailForAdmin.html.twig')
             ->context(['user' => $user])
         ;
     }
