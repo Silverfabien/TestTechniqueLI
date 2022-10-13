@@ -89,8 +89,8 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Sexe',
                 'required' => true,
                 'choices' => [
-                    'Homme' => 1,
-                    'Femme' => 2
+                    'Homme' => 0,
+                    'Femme' => 1
                 ],
                 'expanded' => true,
                 'multiple' => false
