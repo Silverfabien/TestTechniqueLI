@@ -39,6 +39,10 @@ class RegistrationController extends AbstractController
         LoginFormAuthenticator $loginFormAuthenticator
     ): Response|TemplatedEmail
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('default');
+        }
+
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user)->handleRequest($request);
 
