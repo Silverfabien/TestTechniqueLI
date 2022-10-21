@@ -1,0 +1,39 @@
+<div class="sidebar">
+   <div class="sidebar-inner">
+      <div class="sidebar-header">
+         <div class="sidebar-block">
+            <div class="sidebar-block-title">
+               <a class="sidebar-link" href="{{ path('admin_index') }}">
+                  <div class="sidebar-logo">
+                     <img src="{{ asset('pictures/logo/logo.png') }}" alt="">
+                  </div>
+                  <div class="sidebar-title">
+                     <h5 class="title">Test Technique</h5>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <ul class="sidebar-menu">
+         <li class="nav-item dropdown pt-4">
+            <a class="dropdown-toggle btn-submenu" href="#">
+               <span class="icon">
+                   <i class="fas fa-user c-blue"></i>
+               </span>
+               <span class="title">Utilisateur</span>
+               <span class="arrow">
+                  <i class="fas fa-angle-right"></i>
+               </span>
+            </a>
+            <ul class="dropdown-menu">
+               <li>
+                  <a class="sidebar-link" href="#">Ajouter un utilisateur</a>
+               </li>
+               <li>
+                  <a class="sidebar-link" href="#">Liste des utilisateurs</a>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+</div>

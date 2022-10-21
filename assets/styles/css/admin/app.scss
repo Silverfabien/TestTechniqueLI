@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "utils/variables";
+@import "layouts/sidebar";
+@import "layouts/navbar";
+
+body {
+    background-color: lightgray;
+
+    .page-container {
+        min-height: 100vh;
+        padding-left: 280px;
+        transition: $transition;
+    }
+
+    .is-collapsed {
+        .page-container {
+            padding-left: 70px;
+            transition: $transition;
+        }
+    }
+}
