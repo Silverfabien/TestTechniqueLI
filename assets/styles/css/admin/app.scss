@@ -19,4 +19,32 @@ body {
             transition: $transition;
         }
     }
+
+    @media screen and (min-width: 992px) and (max-width: 1439px) {
+        .page-container {
+            padding-left: 70px;
+            transition: $transition;
+        }
+
+        .is-collapsed {
+            .page-container {
+                padding-left: 280px;
+                transition: $transition;
+            }
+        }
+    }
+
+    @media screen and (max-width: 991px) {
+        .page-container {
+            padding-left: 0;
+            transition: $transition;
+        }
+
+        .is-collapsed {
+            .page-container {
+                padding-left: 280px;
+                transition: $transition;
+            }
+        }
+    }
 }

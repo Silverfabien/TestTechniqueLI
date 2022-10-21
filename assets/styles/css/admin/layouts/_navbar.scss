@@ -74,3 +74,27 @@
     width: calc(100% - 70px);
   }
 }
+
+@media screen and (min-width: 992px) and (max-width: 1439px) {
+  .header {
+    width: calc(100% - 70px);
+  }
+
+  .is-collapsed {
+    .header {
+      width: calc(100% - 280px);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .header {
+    width: 100%;
+  }
+
+  .is-collapsed {
+    .header {
+      width: calc(100% - 280px);
+    }
+  }
+}
