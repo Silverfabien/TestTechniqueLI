@@ -4,6 +4,7 @@ namespace App\Form\Administration;
 
 use App\Entity\Security\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -206,7 +207,30 @@ class AdminAddUserType extends AbstractType
                     'class' => 'pt-3'
                 ]
             ])
+            ->add('roles', ChoiceType::class, [
+                'label' => 'Grade',
+                'required' => true,
+                'choices' => [
+                    'Utilisateur' => '[]',
+                    'Administrateur' => 'ROLE_ADMIN'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3'
+                ]
+            ])
         ;
+
+        $builder->get('roles')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($rolesArray) {
+                    // transform the array to a string
+                    return count($rolesArray)? $rolesArray[0]: null;
+                },
+                function ($rolesString) {
+                    // transform the string back to an array
+                    return [$rolesString];
+                }
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void
