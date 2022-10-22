@@ -22,11 +22,10 @@
          {{ include('administration/layouts/sidebar.html.twig') }}
          <div class="page-container">
             {{ include('administration/layouts/navbar.html.twig') }}
+            <div class="main-content">
+               {% block body %}{% endblock %}
+            </div>
          </div>
-      </div>
-
-      <div class="admin-wrapper" id="base-admin">
-         {% block body %}{% endblock %}
       </div>
    </body>
 </html>

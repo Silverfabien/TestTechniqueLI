@@ -24,6 +24,9 @@ class AdminAddUserType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Nom de famille de l\'utilisateur'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-6 col-12'
                 ]
             ])
             ->add('firstname', TextType::class, [
@@ -31,6 +34,9 @@ class AdminAddUserType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Prénom de l\'utilisateur'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-6 col-12'
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -44,6 +50,9 @@ class AdminAddUserType extends AbstractType
                         'max' => 255,
                         'maxMessage' => 'l\'email ne doit pas dépasser {{ limit }} caractères !'
                     ])
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3'
                 ]
             ])
             ->add('password', RepeatedType::class, [
@@ -62,12 +71,15 @@ class AdminAddUserType extends AbstractType
                             'minMessage' => 'Le mot de passe doit contenir plus de {{ limit }} caractères',
                             'maxMessage' => 'Le mot de passe doit contenir moins de {{ limit }} caractères'
                         ])
+                    ],
+                    'row_attr' => [
+                        'class' => 'pt-3 col-sm-6 col-12'
                     ]
                 ],
                 'second_options' => [
-                    'label' => 'Tapez le mot de passe à nouveau',
+                    'label' => 'Confirmer le mot de passe',
                     'attr' => [
-                        'placeholder' => 'Tapez à nouveau le mot de passe'
+                        'placeholder' => 'Confirmer votre mot de passe'
                     ],
                     'constraints' => [
                         new Length([
@@ -76,6 +88,9 @@ class AdminAddUserType extends AbstractType
                             'minMessage' => 'Le mot de passe doit contenir plus de {{ limit }} caractères',
                             'maxMessage' => 'Le mot de passe doit contenir moins de {{ limit }} caractères'
                         ])
+                    ],
+                    'row_attr' => [
+                        'class' => 'pt-3 col-sm-6 col-12'
                     ]
                 ]
             ])
@@ -84,6 +99,29 @@ class AdminAddUserType extends AbstractType
                 'required' => true,
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-4 col-12'
+                ]
+            ])
+            ->add('country', TextType::class, [
+                'label' => 'Pays',
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Pays de l\'utilisateur'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-4 col-12'
+                ]
+            ])
+            ->add('region', TextType::class, [
+                'label' => 'Région',
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Région de l\'utilisateur'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-4 col-12'
+                ]
             ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Sexe',
@@ -93,7 +131,10 @@ class AdminAddUserType extends AbstractType
                     'Femme' => 1
                 ],
                 'expanded' => true,
-                'multiple' => false
+                'multiple' => false,
+                'row_attr' => [
+                    'class' => 'pt-3'
+                ]
             ])
             ->add('job', ChoiceType::class, [
                 'label' => 'Métier',
@@ -160,20 +201,9 @@ class AdminAddUserType extends AbstractType
                         'test29' => 'test29',
                         'test30' => 'test30'
                     ]
-                ]
-            ])
-            ->add('country', TextType::class, [
-                'label' => 'Pays',
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Pays de l\'utilisateur'
-                ]
-            ])
-            ->add('region', TextType::class, [
-                'label' => 'Région',
-                'required' => true,
-                'attr' => [
-                    'placeholder' => 'Région de l\'utilisateur'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3'
                 ]
             ])
         ;

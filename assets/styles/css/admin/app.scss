@@ -5,12 +5,16 @@
 @import "layouts/navbar";
 
 body {
-    background-color: lightgray;
+    background-color: #f5f5f5;
 
     .page-container {
         min-height: 100vh;
         padding-left: 280px;
         transition: $transition;
+
+        .main-content {
+            padding: 80px 20px 20px 20px;
+        }
     }
 
     .is-collapsed {
@@ -42,7 +46,7 @@ body {
 
         .is-collapsed {
             .page-container {
-                padding-left: 280px;
+                padding-left: 0;
                 transition: $transition;
             }
         }

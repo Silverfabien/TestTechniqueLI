@@ -79,6 +79,9 @@
             }
           }
         }
+        .sidebar-mobile-toggle {
+          display: none;
+        }
       }
     }
 
@@ -303,6 +306,14 @@
         .sidebar-logo {
           transition: $transition;
           margin-left: 10px!important;
+        }
+
+        .sidebar-mobile-toggle {
+          display: block!important;
+
+          a {
+            color: $black;
+          }
         }
       }
     }

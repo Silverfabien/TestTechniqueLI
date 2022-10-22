@@ -34,23 +34,23 @@ class UserController extends AbstractController
         $this->mailer = $mailer;
     }
 
-//    /**
-//     * @param UserRepository $userRepository
-//     * @return Response
-//     */
-//    #[Route('/', name: 'admin_user_index', methods: ['GET'])]
-//    public function index(): Response
-//    {
-//        return $this->render('administration/user/index.html.twig', [
-//            'users' => $this->userRepository->findBy(
-//                [],
-//                [
-//                    "country" => "ASC",
-//                    "region" => "ASC"
-//                ]
-//            )
-//        ]);
-//    }
+    /**
+     * @param UserRepository $userRepository
+     * @return Response
+     */
+    #[Route('/', name: 'admin_user_index', methods: ['GET'])]
+    public function index(): Response
+    {
+        return $this->render('administration/user/index.html.twig', [
+            'users' => $this->userRepository->findBy(
+                [],
+                [
+                    "country" => "ASC",
+                    "region" => "ASC"
+                ]
+            )
+        ]);
+    }
 
     /**
      * @param Request $request
