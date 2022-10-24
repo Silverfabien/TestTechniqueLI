@@ -1,0 +1,35 @@
+.table-link>a {
+  text-decoration: none;
+  color: $black;
+}
+
+.table-action {
+  min-width: 100px;
+  width: 100px;
+
+  .table-edit {
+    color: $blue;
+    display: inline-block;
+  }
+
+  .table-edit-password {
+    color: $yellow;
+    display: inline-block;
+  }
+
+  a {
+    padding: 0 4px;
+    text-decoration: none;
+  }
+}
+
+.form-delete {
+  display: inline-block;
+
+  .btn-delete {
+    border: none;
+    background: none;
+    color: $red;
+    padding: 0 4px;
+  }
+}
