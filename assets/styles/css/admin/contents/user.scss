@@ -33,3 +33,25 @@
     padding: 0 4px;
   }
 }
+
+.navigation {
+  display: grid;
+
+  .page-item.active .page-link {
+    background-color: #57cbff;
+    border-color: #57cbff;
+  }
+
+  .page-link {
+    color: black;
+
+    &:hover {
+      background-color: #8fcded;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba(65, 204, 255, 0.25);
+      background-color: #8fcded;
+    }
+  }
+}
