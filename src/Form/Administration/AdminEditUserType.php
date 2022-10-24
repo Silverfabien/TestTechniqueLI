@@ -170,7 +170,7 @@ class AdminEditUserType extends AbstractType
                 'label' => 'Grade',
                 'required' => true,
                 'choices' => [
-                    'Utilisateur' => '[]',
+                    'Utilisateur' => 'ROLE_USER',
                     'Administrateur' => 'ROLE_ADMIN'
                 ],
                 'row_attr' => [

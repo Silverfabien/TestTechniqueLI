@@ -1,11 +1,10 @@
 {% extends 'administration/base.html.twig' %}
 
 {% block body %}
-    <div class="bg-white p-4">
+    <div class="bg-white p-4 user-index">
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
             <tr>
-                <th>#</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>E-mail</th>
@@ -15,11 +14,8 @@
             </tr>
             </thead>
             <tbody>
-            {% set nbUser = 0 %}
             {% for user in users %}
-                {% set nbUser = nbUser + 1 %}
                 <tr>
-                    <th>{{ nbUser }}</th>
                     <td class="table-link">
                         <a href="{{ path('admin_user_show', {'id': user.id}) }}">
                             {{ user.lastname }}
