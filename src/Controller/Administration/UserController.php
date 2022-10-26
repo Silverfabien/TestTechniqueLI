@@ -8,6 +8,7 @@ use App\Form\Administration\AdminAddUserType;
 use App\Form\Administration\AdminEditUserPasswordType;
 use App\Form\Administration\AdminEditUserType;
 use App\Repository\Administration\UserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/admin')]
+#[Route('/admin/user')]
 class UserController extends AbstractController
 {
     private UserRepository $userRepository;
@@ -39,16 +40,27 @@ class UserController extends AbstractController
      * @return Response
      */
     #[Route('/', name: 'admin_user_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(
+        Request $request,
+        PaginatorInterface $paginator
+    ): Response
     {
+        $users = $this->userRepository->findBy(
+            [],
+            [
+                "country" => "ASC",
+                "region" => "ASC"
+            ]
+        );
+
+        $paginate = $paginator->paginate(
+            $users,
+            $request->query->getInt('page', 1),
+            20
+        );
+
         return $this->render('administration/user/index.html.twig', [
-            'users' => $this->userRepository->findBy(
-                [],
-                [
-                    "country" => "ASC",
-                    "region" => "ASC"
-                ]
-            )
+            'users' => $paginate
         ]);
     }
 
