@@ -3,9 +3,10 @@
 @import "utils/variables";
 @import "layouts/navbar";
 @import "layouts/footer";
+@import "components/form";
 
 body {
-    background-color: lightgray;
+    background-color: #f5f5f5;
 
     .main-content {
         padding: 20px;

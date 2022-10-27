@@ -24,6 +24,9 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Votre nom de famille'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-6 col-12'
                 ]
             ])
             ->add('firstname', TextType::class, [
@@ -31,6 +34,9 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'placeholder' => 'Votre prénom'
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-6 col-12'
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -44,6 +50,9 @@ class RegistrationFormType extends AbstractType
                         'max' => 255,
                         'maxMessage' => 'Votre email ne doit pas dépasser {{ limit }} caractères !'
                     ])
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3'
                 ]
             ])
             ->add('password', RepeatedType::class, [
@@ -62,6 +71,9 @@ class RegistrationFormType extends AbstractType
                             'minMessage' => 'Votre mot de passe doit contenir plus de {{ limit }} caractères',
                             'maxMessage' => 'Votre mot de passe doit contenir moins de {{ limit }} caractères'
                         ])
+                    ],
+                    'row_attr' => [
+                        'class' => 'pt-3 col-sm-6 col-12'
                     ]
                 ],
                 'second_options' => [
@@ -76,6 +88,9 @@ class RegistrationFormType extends AbstractType
                             'minMessage' => 'Votre mot de passe doit contenir plus de {{ limit }} caractères',
                             'maxMessage' => 'Votre mot de passe doit contenir moins de {{ limit }} caractères'
                         ])
+                    ],
+                    'row_attr' => [
+                        'class' => 'pt-3 col-sm-6 col-12'
                     ]
                 ]
             ])
@@ -84,6 +99,9 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-6 col-12'
+                ]
             ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Sexe',
@@ -93,7 +111,10 @@ class RegistrationFormType extends AbstractType
                     'Femme' => 1
                 ],
                 'expanded' => true,
-                'multiple' => false
+                'multiple' => false,
+                'row_attr' => [
+                    'class' => 'pt-3 col-sm-6 col-12'
+                ]
             ])
             ->add('job', ChoiceType::class, [
                 'label' => 'Métier',
@@ -160,6 +181,9 @@ class RegistrationFormType extends AbstractType
                         'test29' => 'test29',
                         'test30' => 'test30'
                     ]
+                ],
+                'row_attr' => [
+                    'class' => 'pt-3'
                 ]
             ])
         ;
