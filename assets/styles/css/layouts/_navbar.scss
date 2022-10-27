@@ -1,0 +1,34 @@
+.navbar {
+  background-color: white;
+}
+
+.navbar-logo {
+  width: 40px;
+  margin: 0 20px;
+}
+
+.nav-link {
+  color: black;
+}
+
+.navbar-logout {
+  margin: 0 20px;
+}
+
+.logout {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar-logout {
+    margin: 0;
+  }
+
+  .logout {
+    display: block!important;
+  }
+
+  .i-logout {
+    display: none;
+  }
+}
