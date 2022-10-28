@@ -1,0 +1,24 @@
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../../public/pictures/index/index.avif");
+  background-position: center top;
+  background-size: cover;
+}
+
+.typed-block {
+  height: 100vh;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    color: $white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}

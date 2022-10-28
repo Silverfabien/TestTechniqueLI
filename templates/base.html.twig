@@ -8,13 +8,21 @@
 
         {# CSS #}
         {{ encore_entry_link_tags('app') }}
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
         {% block stylesheets %}{% endblock %}
 
         {# JS #}
         {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('navbar') }}
         {% block javascripts %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="wrapper">
+            <div class="page-container">
+                {{ include('layouts/navbar.html.twig') }}
+                {% block body %}{% endblock %}
+                {{ include('layouts/footer.html.twig') }}
+            </div>
+        </div>
     </body>
 </html>

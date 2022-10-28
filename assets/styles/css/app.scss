@@ -1,5 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
 
+@import "utils/variables";
+@import "layouts/navbar";
+@import "layouts/footer";
+@import "components/form";
+@import "contents/index";
+
 body {
-    background-color: lightgray;
+    background-color: #f5f5f5;
+
+    .main-content {
+        padding: 80px 20px 20px 20px;
+    }
 }

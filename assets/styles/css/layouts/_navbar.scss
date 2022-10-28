@@ -1,0 +1,57 @@
+// Navbar Index page
+.navbarDefault {
+  background: none!important;
+  transition: all 0.2s ease;
+
+  .navbar-brand, .nav-link, .navbar-toggler {
+    color: white!important;
+  }
+}
+
+// Navbar All pages except index page
+.navbar {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  transition: all 0.2s ease;
+  padding: 0;
+
+  .navbar-logo {
+    width: 40px;
+    margin: 0 20px;
+  }
+
+  .navbar-brand, .nav-link, .navbar-toggler {
+    color: black;
+    font-weight: bold;
+  }
+
+  .navbar-logout {
+    margin: 0 10px;
+  }
+
+  .logout {
+    display: none;
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .navbar, .navbarDefault {
+    .navbar-logout {
+      margin: 0;
+    }
+
+    .logout {
+      display: block!important;
+    }
+
+    .i-logout {
+      display: none;
+    }
+  }
+}

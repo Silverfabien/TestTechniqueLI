@@ -48,20 +48,13 @@
     li {
       float: left;
 
-      .nav-logout {
+      .nav-admin {
         color: $black;
         display: block;
         line-height: 65px;
         min-height: 65px;
         padding: 0 15px;
-      }
-
-      .nav-user {
-        color: $black;
-        display: block;
-        line-height: 65px;
-        min-height: 65px;
-        padding: 0 15px;
+        text-decoration: none;
       }
     }
   }

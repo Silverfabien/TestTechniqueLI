@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+   <section id="accueil">
+      <div class="banner">
+         <div class="typed-block">
+            <p><span class="typed"></span></p>
+         </div>
+      </div>
+   </section>
+{% endblock %}
 
+{% block javascripts %}
+   {{ encore_entry_script_tags('typed') }}
 {% endblock %}
