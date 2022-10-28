@@ -1,7 +1,24 @@
 .banner {
   width: 100%;
   height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1498550744921-75f79806b8a7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0f6908fa5e81286213c7211276e6b3d&auto=format&fit=crop&w=1500&q=80");
+  background-image: url("../../../../public/pictures/index/index.avif");
   background-position: center top;
   background-size: cover;
+}
+
+.typed-block {
+  height: 100vh;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    color: $white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }
