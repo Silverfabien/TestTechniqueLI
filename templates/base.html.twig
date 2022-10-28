@@ -20,9 +20,7 @@
         <div class="wrapper">
             <div class="page-container">
                 {{ include('layouts/navbar.html.twig') }}
-                <div class="main-content">
-                    {% block body %}{% endblock %}
-                </div>
+                {% block body %}{% endblock %}
                 {{ include('layouts/footer.html.twig') }}
             </div>
         </div>
