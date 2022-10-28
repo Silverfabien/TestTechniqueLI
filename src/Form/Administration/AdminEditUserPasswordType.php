@@ -4,12 +4,8 @@ namespace App\Form\Administration;
 
 use App\Entity\Security\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
@@ -35,6 +31,9 @@ class AdminEditUserPasswordType extends AbstractType
                             'minMessage' => 'Le mot de passe doit contenir plus de {{ limit }} caractères',
                             'maxMessage' => 'Le mot de passe doit contenir moins de {{ limit }} caractères'
                         ])
+                    ],
+                    'row_attr' => [
+                        'class' => 'pt-3 col-sm-6 col-12'
                     ]
                 ],
                 'second_options' => [
@@ -49,6 +48,9 @@ class AdminEditUserPasswordType extends AbstractType
                             'minMessage' => 'Le mot de passe doit contenir plus de {{ limit }} caractères',
                             'maxMessage' => 'Le mot de passe doit contenir moins de {{ limit }} caractères'
                         ])
+                    ],
+                    'row_attr' => [
+                        'class' => 'pt-3 col-sm-6 col-12'
                     ]
                 ]
             ])

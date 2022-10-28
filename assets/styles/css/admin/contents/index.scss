@@ -1,0 +1,81 @@
+.user-index {
+  padding: 20px;
+
+  .row-card {
+    margin: 0 15px;
+
+    .card-deck {
+      margin-bottom: 10px;
+
+      .card {
+        min-height: 150px;
+        max-height: 150px;
+        border: none;
+      }
+
+      .card-nb-user {
+        background-color: #63c7ff;
+      }
+
+      .card-nb-user-week {
+        background-color: #fb8f3e;
+      }
+
+      .card-last-user {
+        background-color: #d674ff;
+      }
+
+      .card-user-country {
+        background-color: #6dd4b1;
+      }
+    }
+  }
+}
+
+.graph {
+  margin: 15px 15px 0 15px;
+
+  .user-graph {
+    width: 450px;
+    height: 450px;
+    background-color: #f7f7f7;
+    margin: auto;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1350px) {
+  .is-collapsed {
+    .user-graph {
+      width: 375px!important;
+      height: 375px!important;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .graph-pie {
+    margin-bottom: 15px!important;
+  }
+}
+
+@media screen and (min-width: 611px) and (max-width: 991px) {
+  .graph-pie {
+    margin-bottom: 15px!important;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .user-index {
+    padding: 20px 0!important;
+  }
+
+  .user-graph {
+    width: 100%!important;
+    height: 100%!important;
+  }
+
+  .graph-pie {
+    margin-bottom: 15px!important;
+  }
+}

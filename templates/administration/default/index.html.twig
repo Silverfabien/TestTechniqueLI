@@ -1,0 +1,62 @@
+{% extends 'administration/base.html.twig' %}
+
+{% block body %}
+   <div class="bg-white user-index">
+      <div class="row row-card">
+         <div class="card-deck col-xl-3 col-lg-6 col-12">
+            <div class="card card-nb-user">
+               <div class="card-body">
+                  <h5 class="card-title">Nombre d'utilisateur</h5>
+                  <p class="card-text">300</p>
+               </div>
+            </div>
+         </div>
+
+         <div class="card-deck col-xl-3 col-lg-6 col-12">
+            <div class="card card-nb-user-week">
+               <div class="card-body">
+                  <h5 class="card-title">Nombre d'inscrit durant les 7 derniers jours</h5>
+                  <p class="card-text">25</p>
+               </div>
+            </div>
+         </div>
+
+         <div class="card-deck col-xl-3 col-lg-6 col-12">
+            <div class="card card-last-user">
+               <div class="card-body">
+                  <h5 class="card-title">Dernier utilisateur inscrit</h5>
+                  <p class="card-text">Nom Prénom</p>
+               </div>
+            </div>
+         </div>
+
+         <div class="card-deck col-xl-3 col-lg-6 col-12">
+            <div class="card card-user-country">
+               <div class="card-body">
+                  <h5 class="card-title">Pays ayant le plus d'utilisateur</h5>
+                  <p class="card-text">États-Unis</p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row graph">
+         <div class="col-xl-6 col-12 graph-pie">
+            <div class="user-graph">
+               <canvas id="pie" width="420" height="420"></canvas>
+            </div>
+         </div>
+         <div class="col-xl-6 col-12">
+            <div class="user-graph">
+               <canvas id="bar" width="420" height="420"></canvas>
+            </div>
+         </div>
+      </div>
+   </div>
+
+{% endblock %}
+
+{% block javascripts %}
+   {{ encore_entry_script_tags('pie') }}
+   {{ encore_entry_script_tags('bar') }}
+{% endblock %}

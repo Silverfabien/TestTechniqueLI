@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %}Test Technique Lemon Interactive - Administration{% endblock %}</title>
+      <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+      {# CSS #}
+      {{ encore_entry_link_tags('app_admin') }}
+      <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-a11y="true"></script>
+      {% block stylesheets %}{% endblock %}
+
+      {# JS #}
+      {{ encore_entry_script_tags('app_admin') }}
+      {{ encore_entry_script_tags('sidebar_admin') }}
+      {{ encore_entry_script_tags('navbar_admin') }}
+      {% block javascripts %}{% endblock %}
+   </head>
+   <body>
+      <div class="wrapper">
+         {{ include('administration/layouts/sidebar.html.twig') }}
+         <div class="page-container">
+            {{ include('administration/layouts/navbar.html.twig') }}
+            <div class="main-content">
+               {% block body %}{% endblock %}
+            </div>
+           {{ include('administration/layouts/footer.html.twig') }}
+         </div>
+      </div>
+   </body>
+</html>
