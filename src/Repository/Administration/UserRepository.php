@@ -82,12 +82,43 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                 ->orderBy('u.createdAt', 'DESC')
                 ->select('u.createdAt')
                 ->getQuery()
-                ->getResult();
+                ->getResult()
+            ;
 
             $result[] = count($builder);
             $count += count($builder);
         }
 
         return [$result, $count];
+    }
+
+    public function countryMostUtilisateur()
+    {
+        $builder = $this->createQueryBuilder('u')
+            ->select('u')
+            ->orderBy('u.country', 'DESC')
+            ->select('u.country')
+            ->getQuery()
+            ->getResult()
+        ;
+
+        foreach ($builder as $value) {
+            $value = $value['country'];
+            $values[] = $value;
+        }
+
+        $sortValue = array_count_values($values);
+        arsort($sortValue);
+
+        $i = 0;
+        foreach ($sortValue as $country => $numberUser) {
+            if (++$i > 6) {
+                break;
+            }
+            $result = [$country, $numberUser];
+            $results[] = $result;
+        }
+
+       return $results;
     }
 }

@@ -18,7 +18,8 @@ class DefaultController extends AbstractController
         return $this->render('administration/default/index.html.twig', [
             'nb_user' => count($userRepository->findAll()),
             'nb_user_last_7_day' => $userRepository->userRegisterLastDay()[1],
-            'last_user_register' => $userRepository->findOneBy([],['createdAt' => 'DESC'])
+            'last_user_register' => $userRepository->findOneBy([],['createdAt' => 'DESC']),
+            'country_most_user' => $userRepository->countryMostUtilisateur()[0][0]
         ]);
     }
 
@@ -31,26 +32,9 @@ class DefaultController extends AbstractController
         $result = "";
 
         if ($request->getMethod() === 'GET' && $request->isXmlHttpRequest()) {
-            $users = $userRepository->findAll();
+            $result = $userRepository->countryMostUtilisateur();
 
-            foreach ($users as &$value) {
-                $value = $value->getCountry();
-                $values[] = $value;
-            }
-
-            $sortValue = array_count_values($values);
-            arsort($sortValue);
-
-            $i = 0;
-            foreach ($sortValue as $country => $numberUser) {
-                if (++$i > 6) {
-                    break;
-                }
-                $result = [$country, $numberUser];
-                $results[] = $result;
-            }
-
-            return new JsonResponse([$results, $i-1]);
+            return new JsonResponse([$result, count($result)]);
         }
 
         return new JsonResponse($result);
