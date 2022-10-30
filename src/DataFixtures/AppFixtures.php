@@ -24,13 +24,19 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $jobData = [
-            "Accompagnant", "Médecin", "Coach sportif", "Électricien", "Plombier", "Technicien", "Mécanicien",
-            "Professeur", "Boulanger", "Boucher", "Pâtissier", "Développeur", "Chirurgien", "Vétérinaire"
+            'Jardinier / Paysagiste', 'Agriculteur', 'Exploitation', 'Agent de sécurité', 'Gendarme / Policier',
+            'Pompier', 'Contrôleur', 'Douanier', 'Militaire', 'Bijoutier', 'Cordonnier', 'Couturier', 'Designer',
+            'Horloger', 'Journaliste', 'Bibliothécaire', 'Animateur', 'Comédien', 'Électricien', 'Plombier', 'Couvreur',
+            'Maçon', 'Mécanicien', 'Menuisier', 'Peintre', 'Caissier', 'Commercial', 'Avocat', 'Notaire', 'Juges',
+            'Comptable', 'Recruteur', 'Professeur', 'Éducateur', 'Barman', 'Serveur', 'Réceptionniste', 'Guide',
+            'Chaudronnier', 'Soudeur', 'Électromécanicien', 'Développeur', 'Cybersécurité', 'Administrateur réseau',
+            'Analyste', 'Médecin', 'Pharmacien', 'Chirurgien', 'Chercheur', 'Infirmier', 'Entraineur',
+            'Sportif professionnel'
         ];
 
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i<20; $i++) {
+        for ($i = 0; $i<100; $i++) {
             $ip = $faker->ipv4;
             $ipApi = file_get_contents("http://ip-api.com/json/".$ip."?fields=9&lang=fr");
             $decodeApi = json_decode($ipApi, true);

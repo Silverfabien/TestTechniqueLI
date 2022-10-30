@@ -30,7 +30,7 @@ class UserAdminFixtures extends Fixture
         $user->setGender(0);
         $user->setCountry("France");
         $user->setRegion("Hauts de France");
-        $user->setJob("Un metier");
+        $user->setJob("Développeur"); // Check list "src/DataFixtures/AppFixtures" line 26
         $user->setBirthday(new \DateTimeImmutable('1970/01/01'));
         $user->setRoles(["ROLE_ADMIN"]);
         $user->setCreatedAt(new \DateTimeImmutable());
