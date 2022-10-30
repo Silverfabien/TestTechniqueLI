@@ -14,19 +14,19 @@
       }
 
       .card-nb-user {
-        background-color: #63c7ff;
+        background-color: $card-user;
       }
 
       .card-nb-user-week {
-        background-color: #fb8f3e;
+        background-color: $card-user-week;
       }
 
       .card-last-user {
-        background-color: #d674ff;
+        background-color: $card-last-user;
       }
 
       .card-user-country {
-        background-color: #6dd4b1;
+        background-color: $card-user-country;
       }
     }
   }
@@ -38,7 +38,7 @@
   .user-graph {
     width: 450px;
     height: 450px;
-    background-color: #f7f7f7;
+    background-color: $background-graph;
     margin: auto;
     border-radius: 10px;
   }
