@@ -78,7 +78,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
                 ->select('u')
                 ->where('u.createdAt BETWEEN :date_end AND :date_start')
                 ->setParameter('date_end', date_format($dateEnd, 'Y-m-d'))
-                ->setParameter('date_start',date_format($dateStart, 'Y-m-d'))
+                ->setParameter('date_start',
+                    $count == 0 ? new \DateTime() : date_format($dateStart, 'Y-m-d')
+                )
                 ->orderBy('u.createdAt', 'DESC')
                 ->select('u.createdAt')
                 ->getQuery()
