@@ -8,7 +8,7 @@
 @import "contents/index";
 
 body {
-    background-color: #f5f5f5;
+    background-color: $background-main;
 
     .page-container {
         min-height: 100vh;
