@@ -14,9 +14,6 @@ $.ajax({
             nb.push(item[1]);
         });
 
-        console.log(country);
-        console.log(nb);
-
         const ctx = document.getElementById('pie').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'pie',

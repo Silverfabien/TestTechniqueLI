@@ -51,4 +51,22 @@ class DefaultController extends AbstractController
 
         return new JsonResponse($result);
     }
+
+    #[Route('/bar', name: 'admin_index_bar')]
+    public function bar(
+        Request $request,
+        UserRepository $userRepository,
+    ): JsonResponse
+    {
+        $result = "";
+
+        if ($request->getMethod() === 'GET' && $request->isXmlHttpRequest()) {
+
+            $result = $userRepository->userRegisterlastDay();
+
+            return new JsonResponse($result);
+        }
+
+        return new JsonResponse($result);
+    }
 }

@@ -30,7 +30,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
 
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i<300; $i++) {
+        for ($i = 0; $i<20; $i++) {
             $ip = $faker->ipv4;
             $ipApi = file_get_contents("http://ip-api.com/json/".$ip."?fields=9&lang=fr");
             $decodeApi = json_decode($ipApi, true);
@@ -58,11 +58,12 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
                 $user->setRegion($replaceRegion);
                 $user->setJob($jobData[random_int(0, count($jobData) - 1)]);
                 $user->setBirthday($faker->dateTimeBetween('-100 year'));
+                $user->setCreatedAt($faker->dateTimeBetween('-7 day'));
 
                 $manager->persist($user);
             }
 
-            // Max 45 request per minute
+            // Max 45 request per minute for API
             sleep(1.5);
             // Returns the number of users created
             dump($i);

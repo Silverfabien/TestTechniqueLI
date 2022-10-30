@@ -33,6 +33,7 @@ class UserAdminFixtures extends Fixture
         $user->setJob("Un metier");
         $user->setBirthday(new \DateTimeImmutable('1970/01/01'));
         $user->setRoles(["ROLE_ADMIN"]);
+        $user->setCreatedAt(new \DateTimeImmutable());
 
         $manager->persist($user);
         $manager->flush();

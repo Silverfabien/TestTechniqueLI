@@ -63,8 +63,26 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->save($user, true);
     }
 
-    public function countUserPerCountry()
-    {
 
+    public function userRegisterLastDay()
+    {
+        $end = ['-1 day', '-2 day', '-3 day', '-4 day', '-5 day', '-6 day', '-7 day'];
+        $start = ['', '-1 day', '-2 day', '-3 day', '-4 day', '-5 day', '-6 day'];
+
+        for ($i = 0; $i < 7; $i++) {
+            $builder = $this->createQueryBuilder('u')
+                ->select('u')
+                ->where('u.createdAt BETWEEN :date_end AND :date_start')
+                ->setParameter('date_end', date_create($end[$i]))
+                ->setParameter('date_start',date_create($start[$i]))
+                ->orderBy('u.createdAt', 'DESC')
+                ->select('u.createdAt')
+                ->getQuery()
+                ->getResult();
+
+            $result[] = count($builder);
+        }
+
+        return $result;
     }
 }
