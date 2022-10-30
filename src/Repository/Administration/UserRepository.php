@@ -66,23 +66,28 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     public function userRegisterLastDay()
     {
-        $end = ['-1 day', '-2 day', '-3 day', '-4 day', '-5 day', '-6 day', '-7 day'];
-        $start = ['', '-1 day', '-2 day', '-3 day', '-4 day', '-5 day', '-6 day'];
+        $end = ['', '-1 day', '-2 day', '-3 day', '-4 day', '-5 day', '-6 day'];
+        $start = ['', '', '-1 day', '-2 day', '-3 day', '-4 day', '-5 day'];
+        $count = 0;
 
         for ($i = 0; $i < 7; $i++) {
+            $dateEnd = date_create($end[$i]);
+            $dateStart = date_create($start[$i]);
+
             $builder = $this->createQueryBuilder('u')
                 ->select('u')
                 ->where('u.createdAt BETWEEN :date_end AND :date_start')
-                ->setParameter('date_end', date_create($end[$i]))
-                ->setParameter('date_start',date_create($start[$i]))
+                ->setParameter('date_end', date_format($dateEnd, 'Y-m-d'))
+                ->setParameter('date_start',date_format($dateStart, 'Y-m-d'))
                 ->orderBy('u.createdAt', 'DESC')
                 ->select('u.createdAt')
                 ->getQuery()
                 ->getResult();
 
             $result[] = count($builder);
+            $count += count($builder);
         }
 
-        return $result;
+        return [$result, $count];
     }
 }

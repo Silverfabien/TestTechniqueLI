@@ -13,9 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     #[Route('/', name: 'admin_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
-        return $this->render('administration/default/index.html.twig');
+        return $this->render('administration/default/index.html.twig', [
+            'nb_user' => count($userRepository->findAll()),
+            'nb_user_last_7_day' => $userRepository->userRegisterLastDay()[1],
+            'last_user_register' => $userRepository->findOneBy([],['createdAt' => 'DESC'])
+        ]);
     }
 
     #[Route('/pie', name: 'admin_index_pie')]
@@ -62,7 +66,7 @@ class DefaultController extends AbstractController
 
         if ($request->getMethod() === 'GET' && $request->isXmlHttpRequest()) {
 
-            $result = $userRepository->userRegisterlastDay();
+            $result = $userRepository->userRegisterlastDay()[0];
 
             return new JsonResponse($result);
         }
