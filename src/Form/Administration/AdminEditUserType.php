@@ -101,65 +101,83 @@ class AdminEditUserType extends AbstractType
                 'required' => true,
                 'placeholder' => 'Choisissez le métier de l\'utilisateur',
                 'choices' => [
-                    'Administration' => [
-                        'test1' => 'test1',
-                        'test2' => 'test2'
-                    ],
                     "Agriculture" => [
-                        'test3' => 'test3',
-                        'test4' => 'test4'
+                        'Jardinier / Paysagiste' => 'Jardinier / Paysagiste',
+                        'Agriculteur' => 'Agriculteur',
+                        'Exploitation' => 'Exploitation'
                     ],
                     "Armée / Sécurité" => [
-                        'test5' => 'test5',
-                        'test6' => 'test6'
+                        'Agent de sécurité' => 'Agent de sécurité',
+                        'Gendarme / Policier' => 'Gendarme / Policier',
+                        'Pompier' => 'Pompier',
+                        'Contrôleur' => 'Contrôleur',
+                        'Douanier' => 'Douanier',
+                        'Militaire' => 'Militaire'
                     ],
                     "Arts / Culture" => [
-                        'test7' => 'test7',
-                        'test8' => 'test8'
+                        'Bijoutier' => 'Bijoutier',
+                        'Cordonnier' => 'Cordonnier',
+                        'Couturier' => 'Couturier',
+                        'Designer' => 'Designer',
+                        'Horloger' => 'Horloger',
+                        'Journaliste' => 'Journaliste',
+                        'Bibliothécaire' => 'Bibliothécaire'
                     ],
                     "Audiovisuel / Communication" => [
-                        'test9' => 'test9',
-                        'test10' => 'test10'
+                        'Animateur' => 'Animateur',
+                        'Comédien' => 'Comédien'
                     ],
-                    "Batiment" => [
-                        'test11' => 'test11',
-                        'test12' => 'test12'
+                    "Bâtiment" => [
+                        'Électricien' => 'Électricien',
+                        'Plombier' => 'Plombier',
+                        'Couvreur' => 'Couvreur',
+                        'Maçon' => 'Maçon',
+                        'Mécanicien' => 'Mécanicien',
+                        'Menuisier' => 'Menuisier',
+                        'Peintre' => 'Peintre'
                     ],
                     "Commerce" => [
-                        'test13' => 'test13',
-                        'test14' => 'test14'
+                        'Caissier' => 'Caissier',
+                        'Commercial' => 'Commercial'
                     ],
                     "Droit / Économie / Gestion" => [
-                        'test15' => 'test15',
-                        'test16' => 'test16'
-                    ],
-                    "Énergie / Environnement" => [
-                        'test17' => 'test17',
-                        'test18' => 'test18'
+                        'Avocat' => 'Avocat',
+                        'Notaire' => 'Notaire',
+                        'Juges' => 'Juges',
+                        'Comptable' => 'Comptable',
+                        'Recruteur' => 'Recruteur'
                     ],
                     "Enseignement" => [
-                        'test19' => 'test19',
-                        'test20' => 'test20'
+                        'Professeur' => 'Professeur',
+                        'Éducateur' => 'Éducateur'
                     ],
                     "Hôtellerie / Restauration / Tourisme" => [
-                        'test21' => 'test21',
-                        'test22' => 'test22'
+                        'Barman' => 'Barman',
+                        'Serveur' => 'Serveur',
+                        'Réceptionniste' => 'Réceptionniste',
+                        'Guide' => 'Guide'
                     ],
                     "Industrie" => [
-                        'test23' => 'test23',
-                        'test24' => 'test24'
+                        'Chaudronnier' => 'Chaudronnier',
+                        'Soudeur' => 'Soudeur',
+                        'Électromécanicien' => 'Électromécanicien'
                     ],
                     "Informatique" => [
-                        'test25' => 'test25',
-                        'test26' => 'test26'
+                        'Développeur' => 'Développeur',
+                        'Cybersécurité' => 'Cybersécurité',
+                        'Administrateur réseau' => 'Administrateur réseau',
+                        'Analyste' => 'Analyste'
                     ],
                     "Santé" => [
-                        'test27' => 'test27',
-                        'test28' => 'test28'
+                        'Médecin' => 'Médecin',
+                        'Pharmacien' => 'Pharmacien',
+                        'Chirurgien' => 'Chirurgien',
+                        'Chercheur' => 'Chercheur',
+                        'Infirmier' => 'Infirmier'
                     ],
                     "Sport" => [
-                        'test29' => 'test29',
-                        'test30' => 'test30'
+                        'Entraineur' => 'Entraineur',
+                        'Sportif professionnel' => 'Sportif professionnel'
                     ]
                 ],
                 'row_attr' => [

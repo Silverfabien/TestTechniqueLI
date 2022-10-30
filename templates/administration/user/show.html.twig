@@ -12,6 +12,7 @@
             <li><b>Sexe :</b> {{ user.gender ? 'Femme' : 'Homme' }}</li>
             <li><b>Pays :</b> {{ user.country }}</li>
             <li><b>Région :</b> {{ user.region }}</li>
+            <li><b>Date de création :</b> {{ user.createdAt ? user.createdAt|date('d/m/Y H:i:s') }}</li>
             <li><b>Grade :</b> {{ user.roles == ["ROLE_USER"] ? 'Utilisateur' : 'Administrateur' }}</li>
         </ul>
         <a class="btn btn-primary btn-user" href="{{ path('admin_user_edit', {'id': user.id}) }}">

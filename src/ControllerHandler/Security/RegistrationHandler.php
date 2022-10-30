@@ -44,7 +44,11 @@ class RegistrationHandler
                     $form->get('password')->getData()
                 )
             );
-            $user->setCountry($info["country"]);
+
+            $country = $info["country"];
+            $replaceCountry = str_replace("-", " ", $country);
+
+            $user->setCountry($replaceCountry);
             if ($info["regionName"]) {
                 $user->setRegion($info["regionName"]);
             }

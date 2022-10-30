@@ -4,11 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Security\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class AppFixtures extends Fixture
+class AppFixtures extends Fixture implements DependentFixtureInterface
 {
     private UserPasswordHasherInterface $userPasswordHasher;
 
@@ -23,13 +24,19 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $jobData = [
-            "Accompagnant", "Médecin", "Coach sportif", "Électricien", "Plombier", "Technicien", "Mécanicien",
-            "Professeur", "Boulanger", "Boucher", "Pâtissier", "Développeur", "Chirurgien", "Vétérinaire"
+            'Jardinier / Paysagiste', 'Agriculteur', 'Exploitation', 'Agent de sécurité', 'Gendarme / Policier',
+            'Pompier', 'Contrôleur', 'Douanier', 'Militaire', 'Bijoutier', 'Cordonnier', 'Couturier', 'Designer',
+            'Horloger', 'Journaliste', 'Bibliothécaire', 'Animateur', 'Comédien', 'Électricien', 'Plombier', 'Couvreur',
+            'Maçon', 'Mécanicien', 'Menuisier', 'Peintre', 'Caissier', 'Commercial', 'Avocat', 'Notaire', 'Juges',
+            'Comptable', 'Recruteur', 'Professeur', 'Éducateur', 'Barman', 'Serveur', 'Réceptionniste', 'Guide',
+            'Chaudronnier', 'Soudeur', 'Électromécanicien', 'Développeur', 'Cybersécurité', 'Administrateur réseau',
+            'Analyste', 'Médecin', 'Pharmacien', 'Chirurgien', 'Chercheur', 'Infirmier', 'Entraineur',
+            'Sportif professionnel'
         ];
 
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i<300; $i++) {
+        for ($i = 0; $i<100; $i++) {
             $ip = $faker->ipv4;
             $ipApi = file_get_contents("http://ip-api.com/json/".$ip."?fields=9&lang=fr");
             $decodeApi = json_decode($ipApi, true);
@@ -40,6 +47,12 @@ class AppFixtures extends Fixture
             }
 
             if ($decodeApi) {
+                $country = $decodeApi["country"];
+                $replaceCountry = str_replace("-", " ", $country);
+
+                $region = $decodeApi["regionName"];
+                $replaceRegion = str_replace("-", " ", $region);
+
                 $user = new User();
                 $user->setFirstname($faker->firstName);
                 $user->setLastname($faker->lastName);
@@ -47,18 +60,28 @@ class AppFixtures extends Fixture
                 $user->setPassword($this->userPasswordHasher->hashPassword($user, $faker->password));
                 $user->setGender($faker->boolean());
 
-                $user->setCountry($decodeApi["country"]);
-                $user->setRegion($decodeApi["regionName"]);
+                $user->setCountry($replaceCountry);
+                $user->setRegion($replaceRegion);
                 $user->setJob($jobData[random_int(0, count($jobData) - 1)]);
                 $user->setBirthday($faker->dateTimeBetween('-100 year'));
+                $user->setCreatedAt($faker->dateTimeBetween('-7 day'));
 
                 $manager->persist($user);
             }
 
-            // Max 45 request per minute
-            sleep(2);
+            // Max 45 request per minute for API
+            sleep(1.5);
+            // Returns the number of users created
+            dump($i);
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+            UserAdminFixtures::class
+        ];
     }
 }
