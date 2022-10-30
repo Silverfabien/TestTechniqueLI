@@ -23,9 +23,7 @@ class CheckGeolocationListener
      */
     public function onKernelRequest(RequestEvent $event): void
     {
-        //Todo Delete line 23 and uncomment line 22 for production
-        //$ip = $_SERVER['REMOTE_ADDR'];
-        $ip = "109.219.71.16";
+        $_SERVER['APP_ENV'] === 'dev' ? $ip = "109.219.71.16" : $ip = $_SERVER['REMOTE_ADDR'];
         $ipApi = file_get_contents("http://ip-api.com/json/".$ip."?fields=9&lang=fr");
         $decodeApi = json_decode($ipApi, true);
 
