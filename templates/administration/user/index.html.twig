@@ -1,0 +1,53 @@
+{% extends 'administration/base.html.twig' %}
+
+{% block body %}
+    <div class="bg-white p-4 user-index">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>E-mail</th>
+                <th>Pays</th>
+                <th>Région</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td class="table-link">
+                        <a href="{{ path('admin_user_show', {'id': user.id}) }}">
+                            {{ user.lastname }}
+                        </a>
+                    </td>
+                    <td class="table-link">
+                        <a href="{{ path('admin_user_show', {'id': user.id}) }}">
+                            {{ user.firstname }}
+                        </a>
+                    </td>
+                    <td class="table-link">
+                        <a href="{{ path('admin_user_show', {'id': user.id}) }}">
+                            {{ user.email }}
+                        </a>
+                    </td>
+                    <td>{{ user.country }}</td>
+                    <td>{{ user.region }}</td>
+                    <td class="table-action">
+                        <a class="table-edit" href="{{ path('admin_user_edit', {'id': user.id}) }}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="table-edit-password" href="{{ path('admin_user_edit_password', {'id': user.id}) }}">
+                            <i class="fas fa-lock"></i>
+                        </a>
+                        {{ include('administration/user/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation justify-content-center">
+            {{ knp_pagination_render(users) }}
+        </div>
+    </div>
+{% endblock %}

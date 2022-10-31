@@ -1,0 +1,13 @@
+<h1>{{ (user.gender) ? 'Mme' : 'Mr' }} {{ user.lastname }} {{ user.firstname }} c'est inscrit sur le site</h1>
+
+<p>Voici le récapitulatif de ses informations envoyées :</p>
+<ul>
+   <li><b>Nom :</b> {{ user.lastname }}</li>
+   <li><b>Prénom :</b> {{ user.firstname }}</li>
+   <li><b>Date de naissance :</b> {{ user.birthday|date('d/m/Y') }}</li>
+   <li><b>E-mail :</b> {{ user.email }}</li>
+   <li><b>Sexe :</b> {{ user.gender ? 'Femme' : 'Homme' }}</li>
+   <li><b>Pays :</b> {{ user.country }}</li>
+   {% if user.region %}<li><b>Région :</b> {{ user.region }}</li>{% endif %}
+   <li><b>Métier :</b> {{ user.job }}</li>
+</ul>

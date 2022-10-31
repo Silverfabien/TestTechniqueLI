@@ -1,0 +1,22 @@
+<div class="header navbar">
+   <ul class="nav-left">
+      <li>
+         <a id="sidebar-toggle" class="sidebar-toggle" href="#">
+            <i class="fas fa-bars"></i>
+         </a>
+      </li>
+   </ul>
+   <ul class="nav-right">
+      <li>
+         <span class="nav-admin">{{ app.user.lastname }} {{ app.user.firstname }}</span>
+      </li>
+      <li>
+         <a class="nav-admin" href="{{ path('default') }}">Utilisateur</a>
+      </li>
+      <li>
+         <a class="nav-admin" href="{{ path('logout') }}">
+            <i class="fas fa-power-off"></i>
+         </a>
+      </li>
+   </ul>
+</div>

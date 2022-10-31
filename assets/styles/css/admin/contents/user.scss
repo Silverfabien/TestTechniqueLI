@@ -1,0 +1,85 @@
+// User index
+
+.user-index {
+  .table-link>a {
+    text-decoration: none;
+    color: $black;
+  }
+
+  .table-action {
+    min-width: 100px;
+    width: 100px;
+
+    .table-edit {
+      color: $blue;
+      display: inline-block;
+    }
+
+    .table-edit-password {
+      color: $yellow;
+      display: inline-block;
+    }
+
+    a {
+      padding: 0 4px;
+      text-decoration: none;
+    }
+  }
+
+  .form-delete {
+    display: inline-block;
+
+    .btn-delete {
+      border: none;
+      background: none;
+      color: $red;
+      padding: 0 4px;
+    }
+  }
+}
+
+.navigation {
+  display: grid;
+
+  .page-item.active .page-link {
+    background-color: $paginator-active;
+    border-color: $paginator-active;
+  }
+
+  .page-link {
+    color: black;
+
+    &:hover {
+      background-color: $paginator-hover;
+    }
+
+    &:focus {
+      box-shadow: $paginator-box-shadow;
+      background-color: $paginator-focus;
+    }
+  }
+}
+
+// User show
+
+.user-show {
+  .info {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+
+  @media screen and (max-width: 400px) {
+    .btn-user {
+      display: block;
+    }
+
+    .btn-user-edit-password {
+      margin-top: 0.25rem;
+    }
+
+    .btn-user-delete {
+      width: 100%;
+    }
+  }
+}

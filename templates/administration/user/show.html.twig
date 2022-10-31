@@ -1,0 +1,26 @@
+{% extends 'administration/base.html.twig' %}
+
+{% block body %}
+    <div class="bg-white p-4 user-show">
+        <h2>Information de {{ user.lastname }} {{ user.firstname }}</h2>
+
+        <ul class="info">
+            <li><b>Nom et Prénom :</b> {{ user.lastname }} {{ user.firstname }}</li>
+            <li><b>Email :</b> {{ user.email }}</li>
+            <li><b>Date de naissance :</b> {{ user.birthday ? user.birthday|date('d/m/Y') : '' }}</li>
+            <li><b>Métier :</b> {{ user.job }}</li>
+            <li><b>Sexe :</b> {{ user.gender ? 'Femme' : 'Homme' }}</li>
+            <li><b>Pays :</b> {{ user.country }}</li>
+            <li><b>Région :</b> {{ user.region }}</li>
+            <li><b>Date de création :</b> {{ user.createdAt ? user.createdAt|date('d/m/Y H:i:s') }}</li>
+            <li><b>Grade :</b> {{ user.roles == ["ROLE_USER"] ? 'Utilisateur' : 'Administrateur' }}</li>
+        </ul>
+        <a class="btn btn-primary btn-user" href="{{ path('admin_user_edit', {'id': user.id}) }}">
+            Modifier
+        </a>
+        <a class="btn btn-primary btn-user btn-user-edit-password" href="{{ path('admin_user_edit_password', {'id': user.id}) }}">
+            Modifier le mot de passe
+        </a>
+        {{ include('administration/user/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

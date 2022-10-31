@@ -1,0 +1,11 @@
+{% extends 'administration/base.html.twig' %}
+
+{% block body %}
+    <div class="bg-white p-4">
+        <h3>Modifier un utilisateur</h3>
+        {{ include('administration/user/_edit_form.html.twig') }}
+        <div class="text-center mt-3">
+            <a class="" href="{{ path('admin_user_edit_password', {"id": user.id}) }}">Modifier le mot de passe de cet utilisateur</a>
+        </div>
+    </div>
+{% endblock %}
