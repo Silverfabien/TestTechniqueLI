@@ -173,7 +173,6 @@ class UserController extends AbstractController
     ): TemplatedEmail
     {
         return (new TemplatedEmail())
-            ->from('testtechnique@gmail.com')
             ->to($user->getEmail())
             ->subject('Récapitulatif de l\'inscription faîtes par un administrateur du site')
             ->htmlTemplate('administration\user\_emailForUser.html.twig')
@@ -187,8 +186,7 @@ class UserController extends AbstractController
     ): TemplatedEmail
     {
         return (new TemplatedEmail())
-            ->from('testtechnique@gmail.com')
-            ->to('hollebeque.fabien@hotmail.com')
+            ->to($_SERVER['MAIL_ADMIN'])
             ->subject(
                 'Récapitulatif de l\'inscription de '
                 .$user->getLastname()

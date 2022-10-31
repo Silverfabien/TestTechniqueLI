@@ -6,52 +6,61 @@
 
 <h4>1 > Installation du projet</h4>
 
-Pour installer le projet, il vous suffit de cloner le projet graçe a cette commande dans votre invite de commande :
+<p>Pour installer le projet, il vous suffit de cloner le projet grâce à cette commande dans votre invite de commande :</p>
 
     git clone git@github.com:Silverfabien/TestTechniqueLI.git
 
+---
+
 <h4>2 > Installer les dépendances</h4>
 
-Générer les fichiers important au fonctionnement de symfony, il faut générer les vendors avec la commande suivante :
+
+<p>Générer les fichiers important au fonctionnement de symfony, il faut générer les vendors avec la commande suivante :</p>
 
     composer install
 
-Ensuite générer les fichiers pour le fonctionnement du css et js :
+<p>Ensuite générer les fichiers pour le fonctionnement du css et js :</p>
 
     yarn install
 
+---
+
 <h4>3 >Paramètre</h4>
 
-Dans le fichier `.env`, il vous faut paramétrer la base de donnée ainsi que le serveur smtp :
-
-    DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
-
-<p>Les valeurs suivantes devront être modifiées</p>
+<p>Dans le fichier `.env`, il vous faut paramétrer la base de donnée ainsi que le serveur smtp. Les valeurs suivantes devront être modifiées :</p>
 <u>Pour la base de donnée</u>
 
-    line 31 : DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
+    ligne 31 : DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 
-db_user = Identifiant de votre bdd<br />
-db_password = Mot de passe de votre bdd<br />
-127.0.0.1:3306 = Ip + port de connexion de votre bdd<br />
-db_name = Le nom de votre bdd
+<ul>
+    <li><b>db_user :</b> Identifiant de votre bdd</li>
+    <li><b>db_password :</b> Mot de passe de votre bdd</li>
+    <li><b>127.0.0.1:3306 :</b> Ip + port de connexion de votre bdd</li>
+    <li><b>db_name :</b> Le nom de votre bdd</li>
+</ul>
 
 <u>Pour le serveur smtp</u>
 
-    line 43 : MAILER_DSN=smtp://email:password@url:port?encryption=tls&auth_mode=login
+    ligne 43 : MAILER_DSN=smtp://email:password@url:port?encryption=tls&auth_mode=login
 
-email = E-mail de votre serveur smtp<br />
-password = Mot de passe de votre serveur smtp<br />
-url:port = Cible du serveur smtp (ex: ssl0.ovh.net:587)
+<ul>
+    <li><b>email :</b> E-mail de votre serveur smtp</li>
+    <li><b>password :</b> Mot de passe de votre serveur smtp</li>
+    <li><b>url:port :</b> Cible du serveur smtp (ex: ssl0.ovh.net:587)</li>
+</ul>
+
+<p>Ensuite, toujours dans le fichier `.env`, il vous faut configurer la ligne 44 et 45.</p>
+
+---
 
 <h4>4 >Base de donnée</h4>
 
-Pour créer la base donnée, faîtes la commande suivante :
+<p>Pour créer la base donnée, faîtes la commande suivante :</p>
 
     php .\bin\console doctrine:database:create
 
-Ensuite pour les fixtures, allez dans le fichier `src/DataFixtures/UserAdminFixtures`. Vous pourrez modifier le compte admin qui sera créer.<br />
+<p>Ensuite pour les fixtures, allez dans le fichier `src/DataFixtures/UserAdminFixtures`. Vous pourrez modifier le compte admin qui sera créer.</p>
 
-Pour générer les fixtures, faîtes la commande suivante :
+<p>Pour générer les fixtures, faîtes la commande suivante :</p>
 
     php .\bin\console doctrine:fixtures:load

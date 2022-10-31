@@ -71,7 +71,6 @@ class RegistrationController extends AbstractController
     ): TemplatedEmail
     {
         return (new TemplatedEmail())
-            ->from('testtechnique@gmail.com')
             ->to($user->getEmail())
             ->subject('Récapitulatif de l\'inscription')
             ->htmlTemplate('security\registration\_emailForUser.html.twig')
@@ -85,8 +84,7 @@ class RegistrationController extends AbstractController
     ): TemplatedEmail
     {
         return (new TemplatedEmail())
-            ->from('testtechnique@gmail.com')
-            ->to('hollebeque.fabien@hotmail.com')
+            ->to($_SERVER['MAIL_ADMIN'])
             ->subject('Récapitulatif de l\'inscription de '.$user->getLastname().' '.$user->getFirstname())
             ->htmlTemplate('security\registration\_emailForAdmin.html.twig')
             ->context(['user' => $user])
