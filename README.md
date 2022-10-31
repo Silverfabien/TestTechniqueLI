@@ -28,7 +28,8 @@
 <h4>3 >Paramètre</h4>
 
 <p>Dans le fichier `.env`, il vous faut paramétrer la base de donnée ainsi que le serveur smtp. Les valeurs suivantes devront être modifiées :</p>
-<u>Pour la base de donnée</u>
+
+<p><b>Pour la base de donnée :</b></p>
 
     ligne 31 : DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 
@@ -39,7 +40,7 @@
     <li><b>db_name :</b> Le nom de votre bdd</li>
 </ul>
 
-<u>Pour le serveur smtp</u>
+<p><b>Pour le serveur smtp :</b></p>
 
     ligne 43 : MAILER_DSN=smtp://email:password@url:port?encryption=tls&auth_mode=login
 
@@ -59,7 +60,7 @@
 
     php .\bin\console doctrine:database:create
 
-<p>Ensuite pour les fixtures, allez dans le fichier `src/DataFixtures/UserAdminFixtures`. Vous pourrez modifier le compte admin qui sera créer.</p>
+<p>Ensuite pour les fixtures, allez dans le fichier `src/DataFixtures/UserAdminFixtures`. Vous pourrez modifier le compte admin qui sera créer (Ligne 26 à 34).</p>
 
 <p>Pour générer les fixtures, faîtes la commande suivante :</p>
 
